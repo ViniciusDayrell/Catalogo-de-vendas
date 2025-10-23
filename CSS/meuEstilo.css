@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+/* Estilos para garantir que o rodapé fique na parte inferior da página */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos para o conteúdo principal */
+main {
+    /* Centraliza o conteúdo e define uma largura máxima */
+    padding: 20px;
+    flex: 1;
+
+    width: 80%;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+
+    /* Estilos para a borda */
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section p {
+    margin: 10px 0;
+}
+
+/* Estilos para o rodapé */
+footer p {
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+
+}
+
+.titulos-h2 {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+
+/* Estilos para o cabeçalho */
+.header {
+    background-color: #1d1e20;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilo para o menu */
+.menu {
+    display: flex;
+}
+
+.menu li {
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+}
+
+/* Estilo para a lista de produtos */
+.row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Estilos para o formulario */
+#formulario {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.meu-botao {
+    background: linear-gradient(45deg, #ff4081, #ff80ab);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.meu-botao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Layout de texto e imagem lado a lado ===== */
+.sobre-nos,
+.nossos-valores,
+.nossa-missao,
+.conheca-nossa-loja {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Texto flexível */
+.sobre-nos p,
+.nossos-valores p,
+.nossa-missao p,
+.conheca-nossa-loja p{
+    flex: 1;
+    margin-right: 20px;
+}
+
+/* Imagem com leve borda e sombra */
+.sobre-nos img,
+.nossos-valores img,
+.nossa-missao img,
+.conheca-nossa-loja img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+    transition: tranform 0.3s ease;
+}
+
+/* Inverte a ordem do conteúdo (para alternar) */
+.nossos-valores,
+.conheca-nossa-loja {
+    flex-direction: row-reverse;
+}
+
+.efeito-hover:hover img{
+    transform: scale(1.2);
+}
+
+/* Responsividade — empilha no celular */
+@media (max-width: 768px) {
+
+    .sobre-nos,
+    .nossos-valores,
+    .nossa-missao,
+    .conheca-nossa-loja {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .sobre-nos img,
+    .nossos-valores img,
+    .nossa-missao img,
+    .conheca-nossa-loja img {
+        margin-top: 15px;
+        width: 100%;
+        max-width: 300px;
+    }
+}
