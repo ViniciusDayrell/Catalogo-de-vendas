@@ -6,11 +6,6 @@
     text-align: justify;
 }
 
-ul,
-li {
-    list-style: none;
-}
-
 /* Estilos para garantir que o rodapé fique na parte inferior da página */
 html,
 body {
@@ -39,13 +34,54 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-section {
-    margin-bottom: 20px;
+/*Estilos para o cabeçalho*/
+#cabecalho{
+    background: #f0f0f0 url("../imagens/background-header.jpg") no-repeat center center / cover;
+    padding: 25px 0 0 0;
+    text-align: center;
+    color: #fff;
 }
 
-section p {
-    margin: 10px 0;
+#titulo-principal h1{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
+
+#nav-bar{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#menu{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin: 0;
+    padding: 0;
+}
+
+#menu li a{
+    text-decoration: none;
+    color: #dcdcdc;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+#menu li a:hover{
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
 
 /* Estilos para o rodapé */
 footer p {
@@ -60,36 +96,6 @@ footer p {
     padding-bottom: 5px;
 }
 
-/* Estilos para o cabeçalho */
-.header {
-    background-color: #1d1e20;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-.header a {
-    color: white;
-    text-decoration: none;
-}
-
-/* Estilo para o menu */
-.menu {
-    display: flex;
-}
-
-.menu li {
-    margin-left: 10px;
-    padding: 10px;
-}
-
-.menu li a {
-    display: block;
-    padding: 10px;
-}
-
 /* Estilo para a lista de produtos */
 .row {
     display: grid;
@@ -98,19 +104,46 @@ footer p {
 }
 
 /* Estilos para o formulario */
-#formulario {
-    width: 60%;
-    margin: 0 auto;
+.container-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
 }
+
+#form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#form input, 
+#form textarea{
+    outline: unset;
+    padding: 15px;
+    min-width: 300px;
+    border: 1px solid #ff4081;
+    border-radius: 15px;
+}
+
+#form input:focus, 
+#form textarea:focus{
+    background-color: wheat;
+}
+
+
 
 .meu-botao {
     background: linear-gradient(45deg, #ff4081, #ff80ab);
     border: none;
-    color: white;
     padding: 12px 30px;
     border-radius: 50px;
+    cursor: pointer;
 
     font-weight: bold;
+    color: white;
+    text-align: center;
+
     transition: all 0.3s ease;
 }
 
@@ -120,10 +153,7 @@ footer p {
 }
 
 /* ===== Layout de texto e imagem lado a lado ===== */
-.sobre-nos,
-.nossos-valores,
-.nossa-missao,
-.conheca-nossa-loja {
+.container-conteudo {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -131,39 +161,34 @@ footer p {
 }
 
 /* Texto flexível */
-.sobre-nos p,
-.nossos-valores p,
-.nossa-missao p,
-.conheca-nossa-loja p{
+.container-conteudo{
     flex: 1;
     margin-right: 20px;
 }
 
-/* Imagem com leve borda e sombra */
-.sobre-nos img,
-.nossos-valores img,
-.nossa-missao img,
-.conheca-nossa-loja img {
-    width: 250px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-
-    transition: tranform 0.3s ease;
-}
-
 /* Inverte a ordem do conteúdo (para alternar) */
-.nossos-valores,
-.conheca-nossa-loja {
+#nossos-valores,
+#conheca-nossa-loja {
     flex-direction: row-reverse;
 }
 
-.efeito-hover:hover img{
+.img-principal {
+    display: inline-block;
+    border-radius: 50%;;
+
+    transition: all 0.3s ease;
+}
+
+.img-principal:hover{
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     transform: scale(1.2);
 }
 
 /* Responsividade — empilha no celular */
 @media (max-width: 768px) {
+    main{
+        width: auto;
+    }
 
     .sobre-nos,
     .nossos-valores,
@@ -180,5 +205,155 @@ footer p {
         margin-top: 15px;
         width: 100%;
         max-width: 300px;
+    }
+}
+
+/* ===========================
+    CARTÃO DO COMENTÁRIO
+=========================== */
+
+.comentario-card {
+    width: 85%;
+    max-width: 750px;
+    margin: 25px auto;
+    background: #ffffff;
+    padding: 22px 26px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.45s ease forwards;
+}
+
+/* Animação de entrada */
+@keyframes aparecer {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de saída */
+.removendo {
+    animation: sumir 0.35s ease forwards;
+}
+
+@keyframes sumir {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* ===========================
+    TOPO DO CARD
+=========================== */
+
+.info-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff2975, #ff66c4);
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(255, 41, 117, 0.5);
+}
+
+.nome-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.nome-data span:first-child {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.nome-data span:last-child {
+    font-size: 13px;
+    color: #777;
+}
+
+/* ===========================
+    TEXTO DO COMENTÁRIO
+=========================== */
+
+.texto-comentario {
+    margin: 18px 0;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* ===========================
+    AÇÕES DO CARD
+=========================== */
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.actions button:hover {
+    background: rgba(255, 41, 117, 0.15);
+    color: #111;
+}
+
+/* Botão excluir */
+.delete-btn {
+    font-weight: bold;
+    color: #ff2975;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 0, 76, 0.2);
+    color: #c70039;
+}
+
+/* ===========================
+    RESPONSIVIDADE
+=========================== */
+
+@media (max-width: 550px) {
+
+    .comentario-card {
+        width: 93%;
+        padding: 18px;
+    }
+
+    .avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .texto-comentario {
+        font-size: 14px;
+    }
+
+    .actions button {
+        font-size: 13px;
     }
 }
